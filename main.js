@@ -104,7 +104,7 @@ console.log(Kth_greatest_in_array([3, 45, 2, 7, 9, 11], 3));
 function max_difference(arr) {
 	var max = -1;
     var temp;
-	for (var i = 0; i < arr.length - 1; i++)
+	for (var i = 0; i < arr.length - 1; i++)      
       {
 		temp = Math.abs(arr[i] - arr[i + 1]);
       // console.log(temp);
@@ -117,4 +117,70 @@ function max_difference(arr) {
 
 console.log(max_difference([1, 2, 3, 8, 9]))
 // console.log(max_difference([1, 2, 3, 18, 9]))
-// console.log(max_difference([13, 2, 3, 8, 9]))
+console.log(max_difference([13, 2, 3, 8, 9]))
+
+// 13-2 = 11; 2 - 3 = 1; 3 - 8 = 5; 1
+
+// -1, 11 = 11,1,5,1
+// 11
+
+
+// problem 93. Write a JavaScript program to find the maximum difference among all possible pairs of a given array of integers. 
+
+function array_max_diff(arr) {
+
+    var max_result = 0;
+
+    for(var i=0;i<arr.length;i++)
+       {
+        for(var k=0; k!=i && k<arr.length; k++)
+        {
+            var diff = Math.abs(arr[i]-arr[k]);
+            max_result = Math.max(max_result, diff);
+            // console.log(k);
+        }
+    }
+    return max_result;
+}
+console.log(array_max_diff([1, 2, 3]))
+// console.log(array_max_diff([1, 2, 3, 18, 9]))
+// console.log(array_max_diff([13, 2, 3, 8, 9]))
+
+
+
+// problem 94. Write a JavaScript program to find the number appearing most frequently in a given array of integers.
+
+function array_element_mode(arr) {
+   var ctr = [],
+     ans = 0;
+ 
+   for(var i = 0; i < 10; i++) {
+     ctr.push(0);
+   //   console.log(ctr.push(0));
+   }
+   for(var i = 0; i < arr.length; i++) {
+     ctr[arr[i] - 1]++;
+     if(ctr[arr[i] - 1] > ctr[ans]) {
+       ans = arr[i] - 1;
+     }
+   }
+   return ans + 1;  
+ }
+ console.log(array_element_mode([1, 2, 3, 2, 2, 8, 1, 9]))
+
+
+//  problem 95. Write a JavaScript program to replace all numbers with a specified number in an array of integers.
+
+function array_element_replace(arr, old_value, new_value) {
+   for (var i = 0; i < arr.length; i++) {
+     if (arr[i] === old_value) {
+       arr[i] = new_value;
+     }
+   }
+   return arr;
+ }
+
+ console.log(array_element_replace([5,7,3,1,3,0,3], 3, 9));
+
+//  [5,7,9,1,9,0,9]
+
