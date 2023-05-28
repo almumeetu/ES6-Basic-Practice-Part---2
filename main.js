@@ -99,6 +99,7 @@ console.log(Kth_greatest_in_array([3, 45, 2, 7, 9, 11], 3));
 
 
 
+
 // Problem 92. Write a JavaScript program to find the maximum difference between any two adjacent elements of a given array of integers.
 
 function max_difference(arr) {
@@ -150,23 +151,51 @@ console.log(array_max_diff([1, 2, 3]))
 
 // problem 94. Write a JavaScript program to find the number appearing most frequently in a given array of integers.
 
-function array_element_mode(arr) {
-   var ctr = [],
-     ans = 0;
+// function array_element_mode(arr) {
+//    var ctr = [],
+//      ans = 0;
  
-   for(var i = 0; i < 10; i++) {
-     ctr.push(0);
-   //   console.log(ctr.push(0));
-   }
-   for(var i = 0; i < arr.length; i++) {
-     ctr[arr[i] - 1]++;
-     if(ctr[arr[i] - 1] > ctr[ans]) {
-       ans = arr[i] - 1;
+//    for(var i = 0; i < 10; i++) {
+//      ctr.push(0);
+//    //   console.log(ctr.push(0));
+//    }
+//    for(var i = 0; i < arr.length; i++) {
+//      ctr[arr[i] - 1]++;
+//      if(ctr[arr[i] - 1] > ctr[ans]) {
+//        ans = arr[i] - 1;
+//      }
+//    }
+//    return ans + 1;  
+//  }
+//  console.log(array_element_mode([1, 2, 3, 2, 2, 8, 1, 9]))
+
+ function findMostFrequentNumber(arr) {
+   let maxCount = 0;
+   let mostFrequentNumber;
+ 
+   for (let i = 0; i < arr.length; i++) {
+     let count = 1;
+ 
+     for (let j = i + 1; j < arr.length; j++) {
+       if (arr[i] === arr[j]) {
+         count++;
+       }
+     }
+ 
+     if (count > maxCount) {
+       maxCount = count;
+       mostFrequentNumber = arr[i];
      }
    }
-   return ans + 1;  
+ 
+   return mostFrequentNumber;
  }
- console.log(array_element_mode([1, 2, 3, 2, 2, 8, 1, 9]))
+ 
+ // Example usage
+ const numbers = [1, 2, 3, 2, 5, 2, 2, 6, 2, 7, 2];
+ const result = findMostFrequentNumber(numbers)
+ ;
+ console.log(result); // Output: 2
 
 
 //  problem 95. Write a JavaScript program to replace all numbers with a specified number in an array of integers.
@@ -189,10 +218,107 @@ function array_element_replace(arr, old_value, new_value) {
 
 function sum_adjacent_difference(arr) {
 	var result = 0;
+	for (var i = 0; i < arr.length - 1; i++) {
+		result += Math.abs(arr[i] - arr[i + 1]);
+	}
+	return result;
+}
+console.log(sum_adjacent_difference([1, 2, 3, 2, -5]));
+console.log(sum_adjacent_difference([-1, 0, 6, -7, -3]));
+console.log(sum_adjacent_difference([9, 1, -5, 2, -7]));
+
+/////////////////////////////////////////////
+
+
+function sum_adjacent_difference2(arr) {
+	var result = 0;
 	for (var i = 1; i < arr.length; i++) {
 		result += Math.abs(arr[i] - arr[i - 1]);
 	}
 	return result;
 }
+console.log(sum_adjacent_difference2([1, 2, 3, 2, -5]));
+console.log(sum_adjacent_difference2([-1, 0, 6, -7, -3]));
+console.log(sum_adjacent_difference2([9, 1, -5, 2, -7]));
 
-console.log(sum_adjacent_difference([1, 2, 3, 2, -5]));
+
+
+// 91. Write a JavaScript program to find the maximum possible sum of some of its k consecutive numbers (numbers that follow each other in order) in a given array of positive integers. 
+
+
+function findMaxSumOfKConsecutiveNumbers(arr, k) {
+   let maxSum = 0;
+   let currentSum = 0;
+ 
+   // Calculate the sum of the first k numbers
+   for (let i = 0; i < k; i++) {
+     currentSum += arr[i];
+   }
+ 
+   // Update maxSum with the initial sum
+   maxSum = currentSum;
+ 
+   // Calculate the sum of subsequent k consecutive numbers using the sliding window
+   for (let i = k; i < arr.length; i++) {
+     currentSum = currentSum - arr[i - k] + arr[i];
+     maxSum = Math.max(maxSum, currentSum);
+   }
+ 
+   return maxSum;
+ }
+ 
+ // Example usage
+ const number = [1, 2, 3, 14, 5];
+ const k = 2;
+ const results = findMaxSumOfKConsecutiveNumbers(number, k);
+ console.log(results); // Output: 16 (sum of 5 + 7 + 4)
+
+
+// function array_max_consecutive_sum(nums, k) {
+//    let result = 0;
+//    let temp_sum = 0;
+//    for (var i = 0; i < k - 1; i++) {
+//      temp_sum += nums[i];
+//    }
+//    for (var i = k - 1; i < nums.length; i++) {
+//      temp_sum += nums[i];
+//      if (temp_sum > result) {
+//        result = temp_sum;
+//      }
+//      temp_sum -= nums[i - k + 1];
+//    //   console.log(temp_sum);
+//    }
+//    return result;
+//  }
+ 
+//  console.log(array_max_consecutive_sum([1, 2, 3, 14, 5], 2))
+//  console.log(array_max_consecutive_sum([2, 3, 5, 1, 6], 3))
+//  console.log(array_max_consecutive_sum([9, 3, 5, 1, 7], 2))
+
+
+// problem 99. Write a JavaScript program to check whether it is possible to rearrange the characters of a given string. This is in such a way that it will become equal to another given string. 
+
+function rearrangement_characters(str1, str2) {
+
+  var first_set = str1.split(''),
+      second_set = str2.split(''),
+      result = true;
+
+  first_set.sort();
+  second_set.sort();
+
+  // console.log(first_set.sort());
+
+  for (var i = 0; i < Math.max(first_set.length, second_set.length); i++) {
+    if (first_set[i] !== second_set[i]) {
+      result = false;
+    }
+  }
+
+  return result;
+}
+
+console.log(rearrangement_characters("xya", "ayx"))
+// console.log(rearrangement_characters("xyz", "zyp"))
+
+
