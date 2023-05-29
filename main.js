@@ -441,15 +441,34 @@ console.log(find_third_number(1,2,3))
 
 //////////////////////////////////////
 
+// problem 112. Write a JavaScript program to find the number of trailing zeros in the decimal representation of the factorial of a given number. 
+
+// function trailing_zeros_factorial(n) {
+//   var result = 0;
+//   for (var i = 5; i <= n; i += 5) {
+//       var num = i;
+//       while (num % 5 === 0) {
+//           num /= 5;
+//           result++;
+//       }
+//   }
+//   return result;
+// }
+
+// console.log(trailing_zeros_factorial(8))
+// console.log(trailing_zeros_factorial(9))
+// console.log(trailing_zeros_factorial(10))
+
 function findTrailingZeroes(num) {
-   let cur = 5, total = 0;
-   while (cur <= num) {
-      total += Math.floor(num / cur);
-      cur *= 5;
-      // console.log(cur);
+   let i = 5,
+    total = 0;
+   while (i <= num) {
+      total += Math.floor(num / i);
+      i *= 5;
+      // console.log(i);
    };
    return total;
 };
-console.log(findTrailingZeroes(17));
-console.log(findTrailingZeroes(5));
+console.log(findTrailingZeroes(8));
+console.log(findTrailingZeroes(9));
  console.log(findTrailingZeroes(10));
