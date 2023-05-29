@@ -373,3 +373,83 @@ function dot_product(vector1, vector2) {
 console.log(dot_product([1,2,3], [1,2,3]))
 console.log(dot_product([2,4,6], [2,4,6]))
 console.log(dot_product([1,1,1], [0,1,-1]))
+
+
+
+
+// Problem 109. Write a JavaScript program to sort an array of all prime numbers between 1 and a given integer
+
+function sort_prime(num) {
+
+  var prime_num1 = [],
+      prime_num2 = [];
+  for (var i = 0; i <= num; i++) {
+    prime_num2.push(true);
+    // console.log(prime_num2);
+  }
+  for (var i = 2; i <= num; i++) {
+    if (prime_num2[i]) {
+      prime_num1.push(i);
+      for (var j = 1; i * j <= num; j++) {
+        prime_num2[i * j] = false;
+      }
+    }
+  }
+
+  return prime_num1;
+}
+
+console.log(sort_prime(5))
+// console.log(sort_prime(11))
+// console.log(sort_prime(19))
+
+// problem 110. Write a JavaScript program to find the number of even values in sequence before the first occurrence of a given number. 
+
+function find_numbers(arr_num, num) {
+  var result = 0;
+  for (var i = 0; i < arr_num.length; i++)
+  {
+      if (arr_num[i] % 2 === 0 && arr_num[i] !== num) {
+          result++;
+      }
+      if (arr_num[i] === num) 
+      {
+          return result;
+      }
+      // console.log(result);
+  }
+  return -1;
+}
+
+console.log(find_numbers([1,2,3,4,5,6,7,8], 5))
+// console.log(find_numbers([1,3,5,6,7,8], 6))
+
+// problem 111. Write a JavaScript program to check a number from three given numbers where two numbers are equal. Find the third one. 
+
+function find_third_number(x, y, z) {
+  if((x!==y) && (x!==z) && (y!==z))
+   return "Three numbers are unequal.";
+ if(x==y) return z;
+ if(x==z) return y;
+ return x;
+}
+
+console.log(find_third_number(1,2,2))
+console.log(find_third_number(1,1,2))
+console.log(find_third_number(1,2,3))
+
+
+//////////////////////////////////////
+
+function findTrailingZeroes(num) {
+   let cur = 5, total = 0;
+   while (cur <= num) {
+      total += Math.floor(num / cur);
+      cur *= 5;
+      // console.log(cur);
+   };
+   return total;
+};
+console.log(findTrailingZeroes(17));
+console.log(findTrailingZeroes(5));
+ console.log(findTrailingZeroes(10));
