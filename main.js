@@ -151,6 +151,7 @@ console.log(array_max_diff([1, 2, 3]))
 
 // problem 94. Write a JavaScript program to find the number appearing most frequently in a given array of integers.
 
+
 // function array_element_mode(arr) {
 //    var ctr = [],
 //      ans = 0;
@@ -334,3 +335,41 @@ function check_common_element(arra1, arra2) {
 }
 // console.log(check_common_element([1,2,3], [3,2,5]));   
 console.log(check_common_element([1,2,3], [5,6,7]));  
+
+
+
+// problem 104. Write a JavaScript program to find two elements of an array such that their absolute difference is not larger than a given integer. However, it is as close as possible to the integer.
+
+function different_values(ara, n) {
+  let max_val = -1;
+  for (let i = 0; i < ara.length; i++) {
+      for (let j = i + 1; j < ara.length; j++) {
+          const x = Math.abs(ara[i] - ara[j]);
+          console.log(i);
+          console.log(j);
+          console.log(x);
+          if (x <= n) {
+              max_val = Math.max(max_val, x)
+          }
+      }
+  }
+  return max_val
+}
+// console.log(different_values([12, 10, 33, 34], 10));
+// console.log(different_values([12, 10, 33, 34], 24));
+console.log(different_values([12, 10, 33, 44], 40));
+
+
+// problem 108. Write a JavaScript program to create the dot products of two given 3D vectors. 
+// Note: The dot product is the sum of the products of the corresponding entries of the two sequences of numbers.
+
+function dot_product(vector1, vector2) {
+  var result = 0;
+  for (var i = 0; i < 3; i++) {
+    result += vector1[i] * vector2[i];
+  }
+  return result;
+}
+console.log(dot_product([1,2,3], [1,2,3]))
+console.log(dot_product([2,4,6], [2,4,6]))
+console.log(dot_product([1,1,1], [0,1,-1]))
