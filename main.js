@@ -642,6 +642,8 @@ function findTrailingZeroes(num) {
   };
   return total;
 };
+
+console.log("Solution of #112");
 console.log(findTrailingZeroes(8));
 console.log(findTrailingZeroes(9));
 console.log(findTrailingZeroes(10));
@@ -656,9 +658,40 @@ function int_sum(num) {
   }
   return s_sum;
 }
+
+console.log("Solution of #113");
 console.log(int_sum(8))
 console.log(int_sum(9))
 console.log(int_sum(26))
 
 ////////////////////////
 
+// problem 114. Write a JavaScript program to check whether a given string represents a correct sentence or not. A string is considered a correct sentence if it starts with a capital letter and ends with a full stop (.)
+
+function is_correct_Sentence(input_str) {
+  var first_char = input_str[0];
+
+  var last_char = input_str[input_str.length - 1];
+
+  return /[A-Z]/.test(first_char) && last_char == "."
+
+}
+
+console.log("Solution of #114");
+console.log(is_correct_Sentence("This tool will help you write better English and efficiently corrects texts.")); // true
+console.log(is_correct_Sentence("This tool will help you write better English and efficiently corrects texts"));  // false          
+console.log(is_correct_Sentence("this tool will help you write better English and efficiently corrects texts.")); // false
+console.log(is_correct_Sentence("My name is Saikat.")); // true
+console.log(is_correct_Sentence("My brother's name is Al-Mukit Apon. He read in class one. he lives in the village")); // 
+
+
+// problem 118. Write a JavaScript program to check whether a given number is in a given range. 
+
+function is_inrange(x, y, z) 
+{
+    return y >= x && y <= z; 
+}
+
+console.log(is_inrange(1,2,3));  // true
+console.log(is_inrange(1,2,-3)); // false
+console.log(is_inrange(1.1,1.2,1.3)); //true
