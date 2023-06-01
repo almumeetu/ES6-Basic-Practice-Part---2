@@ -644,9 +644,10 @@ function findTrailingZeroes(num) {
 };
 
 console.log("Solution of #112");
-console.log(findTrailingZeroes(8));
-console.log(findTrailingZeroes(9));
-console.log(findTrailingZeroes(10));
+console.log(findTrailingZeroes(8)); // 1
+console.log(findTrailingZeroes(9)); // 1
+console.log(findTrailingZeroes(10)); // 2
+console.log(findTrailingZeroes(11)); // 2
 
 //  problem 113. Write a JavaScript program to calculate the sum of n + n/2 + n/4 + n/8 + .... where n is a positive integer and all divisions are integers.
 
@@ -655,15 +656,18 @@ function int_sum(num) {
   while (num > 0) {
     s_sum += num;
     num = Math.floor(num / 2);
+    console.log(num);
   }
   return s_sum;
 }
 
 console.log("Solution of #113");
-console.log(int_sum(8))
-console.log(int_sum(9))
-console.log(int_sum(26))
+console.log(int_sum(8)) //15
+console.log(int_sum(9)) //16
+console.log(int_sum(14)) //25
+console.log(int_sum(26)) //49
 
+//////////////////
 ////////////////////////
 
 // problem 114. Write a JavaScript program to check whether a given string represents a correct sentence or not. A string is considered a correct sentence if it starts with a capital letter and ends with a full stop (.)
@@ -711,10 +715,10 @@ function is_increasing_digits_Sequence(num) {
 }
 
 console.log("Solution of #119");
-console.log(is_increasing_digits_Sequence(123));
-console.log(is_increasing_digits_Sequence(1223));
-console.log(is_increasing_digits_Sequence(4567));
-console.log(is_increasing_digits_Sequence(84567));
+console.log(is_increasing_digits_Sequence(123)); //true
+console.log(is_increasing_digits_Sequence(1223)); //false
+console.log(is_increasing_digits_Sequence(4567)); //true
+console.log(is_increasing_digits_Sequence(84567)); //false
 
 // problem 120. Write a JavaScript program to check if a point lies strictly inside the circle. 
 // Input:
@@ -722,10 +726,11 @@ console.log(is_increasing_digits_Sequence(84567));
 // Radius of circle: r
 // Point inside a circle (a, b)
 
+
 function check_a_point(a, b, x, y, r) {
   var dist_points = (a - x) * (a - x) + (b - y) * (b - y);
 
-  console.log(dist_points);
+  // console.log(dist_points);
   r *= r;
   if (dist_points < r) {
       return true;
@@ -733,5 +738,26 @@ function check_a_point(a, b, x, y, r) {
   return false;
 }
 
-console.log(check_a_point(0, 0, 2, 4, 6));
-console.log(check_a_point(0, 0, 6, 8, 6));
+console.log(check_a_point(0, 0, 2, 4, 6)); //true
+console.log(check_a_point(0, 0, 6, 8, 6)); //false
+
+
+// problem 122. Write a JavaScript program to check whether a given array of integers represents a strictly increasing or decreasing sequence. 
+
+function is_monotonous(num) {
+  if (num.length === 1) {
+      return true;
+  }
+  var num_direction = num[1] - num[0];
+  for (var i = 0; i < num.length - 1; i++) {
+      if (num_direction * (num[i + 1] - num[i]) <= 0) {
+          return false;
+      }
+  }
+  return true;
+}
+console.log(is_monotonous([1, 2, 3])); //true
+console.log(is_monotonous([1, 2, 2])) //false
+console.log(is_monotonous([-3, -2, -1])) //true
+
+
