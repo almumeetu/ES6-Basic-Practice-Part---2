@@ -682,7 +682,7 @@ console.log(is_correct_Sentence("This tool will help you write better English an
 console.log(is_correct_Sentence("This tool will help you write better English and efficiently corrects texts"));  // false          
 console.log(is_correct_Sentence("this tool will help you write better English and efficiently corrects texts.")); // false
 console.log(is_correct_Sentence("My name is Saikat.")); // true
-console.log(is_correct_Sentence("My brother's name is Al-Mukit Apon. He read in class one. he lives in the village")); // 
+console.log(is_correct_Sentence("My brother's name is Al-Mukit Apon")); // 
 
 
 // problem 118. Write a JavaScript program to check whether a given number is in a given range. 
@@ -716,3 +716,22 @@ console.log(is_increasing_digits_Sequence(1223));
 console.log(is_increasing_digits_Sequence(4567));
 console.log(is_increasing_digits_Sequence(84567));
 
+// problem 120. Write a JavaScript program to check if a point lies strictly inside the circle. 
+// Input:
+// Center of the circle (x, y)
+// Radius of circle: r
+// Point inside a circle (a, b)
+
+function check_a_point(a, b, x, y, r) {
+  var dist_points = (a - x) * (a - x) + (b - y) * (b - y);
+
+  console.log(dist_points);
+  r *= r;
+  if (dist_points < r) {
+      return true;
+  }
+  return false;
+}
+
+console.log(check_a_point(0, 0, 2, 4, 6));
+console.log(check_a_point(0, 0, 6, 8, 6));
