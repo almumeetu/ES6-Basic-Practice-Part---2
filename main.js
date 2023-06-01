@@ -692,6 +692,27 @@ function is_inrange(x, y, z)
     return y >= x && y <= z; 
 }
 
+console.log("Solution of #118");
 console.log(is_inrange(1,2,3));  // true
 console.log(is_inrange(1,2,-3)); // false
 console.log(is_inrange(1.1,1.2,1.3)); //true
+
+// problem 119. Write a JavaScript program to check if a given integer has an increasing digit sequence. 
+
+function is_increasing_digits_Sequence(num) {
+
+  var arr_num = ('' + num).split('');
+
+  for (var i = 0; i < arr_num.length - 1; i++) {
+    if (parseInt(arr_num[i]) >= parseInt(arr_num[i + 1]))
+      return false;
+    }
+  return true;
+}
+
+console.log("Solution of #119");
+console.log(is_increasing_digits_Sequence(123));
+console.log(is_increasing_digits_Sequence(1223));
+console.log(is_increasing_digits_Sequence(4567));
+console.log(is_increasing_digits_Sequence(84567));
+
