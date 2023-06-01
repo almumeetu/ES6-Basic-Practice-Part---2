@@ -463,6 +463,7 @@ function findMaxNumber(num) {
 }
 
 // Example usage:
+console.log("Solution of #103");
 console.log(findMaxNumber(12345));  // Output: 1235
 console.log(findMaxNumber(987654)); // Output: 98765
 console.log(findMaxNumber(9));      // Output: 0 (Only one digit, so no deletion possible)
@@ -479,20 +480,54 @@ function different_values(ara, n) {
   let max_val = -1;
   for (let i = 0; i < ara.length; i++) {
     for (let j = i + 1; j < ara.length; j++) {
-      const x = Math.abs(ara[i] - ara[j]);
-      console.log(i);
-      console.log(j);
-      console.log(x);
+      const x = Math.abs(ara[i] - ara[j]); 
+      // console.log(i);
+      // console.log(j);
+      // console.log(x);
       if (x <= n) {
         max_val = Math.max(max_val, x)
+        // console.log(max_val);
       }
     }
   }
   return max_val
 }
-// console.log(different_values([12, 10, 33, 34], 10));
-// console.log(different_values([12, 10, 33, 34], 24));
+console.log("Solution of #104");
+console.log(different_values([12, 10, 33, 34], 10));
+console.log(different_values([12, 10, 33, 34], 24));
 console.log(different_values([12, 10, 33, 44], 40));
+
+
+// problem 105. Write a JavaScript program to find the number of times to replace a given number with the sum of its digits. This is until it converts to a single-digit number. 
+
+function digit_to_one(num) {
+
+  var digitSum = function(num) {
+
+      var digit_sum = 0;
+      while (num) {
+          digit_sum += num % 10;
+          num = Math.floor(num / 10);
+      }
+
+      return digit_sum;
+  };
+
+  var result = 0;
+
+  while (num >= 10) {
+      result += 1;
+      num = digitSum(num);
+  }
+
+  return result;
+}
+        
+
+ 
+console.log("Solution of #105");
+console.log(digit_to_one(123))
+console.log(digit_to_one(156))
 
 
 // problem 108. Write a JavaScript program to create the dot products of two given 3D vectors. 
@@ -505,6 +540,7 @@ function dot_product(vector1, vector2) {
   }
   return result;
 }
+console.log("Solution of #108");
 console.log(dot_product([1, 2, 3], [1, 2, 3]))
 console.log(dot_product([2, 4, 6], [2, 4, 6]))
 console.log(dot_product([1, 1, 1], [0, 1, -1]))
@@ -534,6 +570,7 @@ function sort_prime(num) {
   return prime_num1;
 }
 
+console.log("Solution of #109");
 console.log(sort_prime(5))
 // console.log(sort_prime(11))
 // console.log(sort_prime(19))
@@ -554,8 +591,10 @@ function find_numbers(arr_num, num) {
   return -1;
 }
 
+console.log("Solution of #110");
 console.log(find_numbers([1, 2, 3, 4, 5, 6, 7, 8], 5))
 // console.log(find_numbers([1,3,5,6,7,8], 6))
+
 
 // problem 111. Write a JavaScript program to check a number from three given numbers where two numbers are equal. Find the third one. 
 
@@ -567,6 +606,7 @@ function find_third_number(x, y, z) {
   return x;
 }
 
+console.log("Solution of #111");
 console.log(find_third_number(1, 2, 2))
 console.log(find_third_number(1, 1, 2))
 console.log(find_third_number(1, 2, 3))
@@ -621,3 +661,4 @@ console.log(int_sum(9))
 console.log(int_sum(26))
 
 ////////////////////////
+
