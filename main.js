@@ -358,7 +358,7 @@ function test_string(input_str) {
   // }
 
   for (let i = 1; i < input_str.length; i++) {
-    if (i % 2) { 
+    if (i % 2) {
       if (is_lower_case(input_str[i]) === is_first_char_lower ||
         is_upper_case(input_str[i]) === is_first_char_upper) {
         return false;
@@ -397,7 +397,7 @@ function checkString(str) {
     ) {
       return false; //   ppercase or lowercase letters found
     }
-  } 
+  }
 
   return true; // String meets the criteria
 }
@@ -420,18 +420,18 @@ console.log(checkString("Hello World")); // Output: false
 function number_of_InversionsNaive(arr) {
   var ctr = 0;
   for (var i = 0; i < arr.length; i++) {
-      for (var j = i + 1; j < arr.length; j++) {
-          if (arr[i] > arr[j]) 
-            ctr++;
-      }
+    for (var j = i + 1; j < arr.length; j++) {
+      if (arr[i] > arr[j])
+        ctr++;
+    }
   }
   return ctr;
 }
 
 console.log("Solution of #102");
-console.log(number_of_InversionsNaive([0, 3, 2, 5, 9]));   
-console.log(number_of_InversionsNaive([1, 5, 4, 3]));   
-console.log(number_of_InversionsNaive([10, 30, 20, -10]));  
+console.log(number_of_InversionsNaive([0, 3, 2, 5, 9]));
+console.log(number_of_InversionsNaive([1, 5, 4, 3]));
+console.log(number_of_InversionsNaive([10, 30, 20, -10]));
 
 
 
@@ -449,10 +449,10 @@ function findMaxNumber(num) {
   for (let i = 0; i < numStr.length; i++) {
     // Remove the current digit from the string
     let newNumStr = numStr.slice(0, i) + numStr.slice(i + 1);
-    
+
     // Convert the modified string back to a number
     let newNum = Number(newNumStr);
-    
+
     // Update the maximum number if necessary
     if (newNum > maxNum) {
       maxNum = newNum;
@@ -480,7 +480,7 @@ function different_values(ara, n) {
   let max_val = -1;
   for (let i = 0; i < ara.length; i++) {
     for (let j = i + 1; j < ara.length; j++) {
-      const x = Math.abs(ara[i] - ara[j]); 
+      const x = Math.abs(ara[i] - ara[j]);
       // console.log(i);
       // console.log(j);
       // console.log(x);
@@ -502,29 +502,29 @@ console.log(different_values([12, 10, 33, 44], 40));
 
 function digit_to_one(num) {
 
-  var digitSum = function(num) {
+  var digitSum = function (num) {
 
-      var digit_sum = 0;
-      while (num) {
-          digit_sum += num % 10;
-          num = Math.floor(num / 10);
-      }
+    var digit_sum = 0;
+    while (num) {
+      digit_sum += num % 10;
+      num = Math.floor(num / 10);
+    }
 
-      return digit_sum;
+    return digit_sum;
   };
 
   var result = 0;
 
   while (num >= 10) {
-      result += 1;
-      num = digitSum(num);
+    result += 1;
+    num = digitSum(num);
   }
 
   return result;
 }
-        
 
- 
+
+
 console.log("Solution of #105");
 console.log(digit_to_one(123))
 console.log(digit_to_one(156))
@@ -571,9 +571,9 @@ function sort_prime(num) {
 }
 
 console.log("Solution of #109");
-console.log(sort_prime(5))
-// console.log(sort_prime(11))
-// console.log(sort_prime(19))
+console.log(sort_prime(5));
+// console.log(sort_prime(11));
+// console.log(sort_prime(19));
 
 // problem 110. Write a JavaScript program to find the number of even values in sequence before the first occurrence of a given number. 
 
@@ -592,8 +592,8 @@ function find_numbers(arr_num, num) {
 }
 
 console.log("Solution of #110");
-console.log(find_numbers([1, 2, 3, 4, 5, 6, 7, 8], 5))
-// console.log(find_numbers([1,3,5,6,7,8], 6))
+console.log(find_numbers([1, 2, 3, 4, 5, 6, 7, 8], 5));
+// console.log(find_numbers([1,3,5,6,7,8], 6));
 
 
 // problem 111. Write a JavaScript program to check a number from three given numbers where two numbers are equal. Find the third one. 
@@ -607,9 +607,9 @@ function find_third_number(x, y, z) {
 }
 
 console.log("Solution of #111");
-console.log(find_third_number(1, 2, 2))
-console.log(find_third_number(1, 1, 2))
-console.log(find_third_number(1, 2, 3))
+console.log(find_third_number(1, 2, 2)) // 1
+console.log(find_third_number(1, 1, 2)) // 2
+console.log(find_third_number(1, 2, 3)) // Three numbers are unequal.
 
 
 //////////////////////////////////////
@@ -644,8 +644,8 @@ function findTrailingZeroes(num) {
 };
 
 console.log("Solution of #112");
-console.log(findTrailingZeroes(8)); // 1
-console.log(findTrailingZeroes(9)); // 1
+console.log(findTrailingZeroes(5)); // 1
+console.log(findTrailingZeroes(9)); // 1 
 console.log(findTrailingZeroes(10)); // 2
 console.log(findTrailingZeroes(11)); // 2
 
@@ -661,14 +661,16 @@ function int_sum(num) {
   return s_sum;
 }
 
+//
 console.log("Solution of #113");
-console.log(int_sum(8)) //15
-console.log(int_sum(9)) //16
-console.log(int_sum(14)) //25
+console.log(int_sum(8))  //15
+console.log(int_sum(9))  //16
+console.log(int_sum(14)) //25 
 console.log(int_sum(26)) //49
 
 //////////////////
-////////////////////////
+//////////////////////// 
+
 
 // problem 114. Write a JavaScript program to check whether a given string represents a correct sentence or not. A string is considered a correct sentence if it starts with a capital letter and ends with a full stop (.)
 
@@ -686,20 +688,110 @@ console.log(is_correct_Sentence("This tool will help you write better English an
 console.log(is_correct_Sentence("This tool will help you write better English and efficiently corrects texts"));  // false          
 console.log(is_correct_Sentence("this tool will help you write better English and efficiently corrects texts.")); // false
 console.log(is_correct_Sentence("My name is Saikat.")); // true
-console.log(is_correct_Sentence("My brother's name is Al-Mukit Apon")); // 
+console.log(is_correct_Sentence("My brother's name is Al-Mukit Apon")); // false
 
+// problem 115. Write a JavaScript program to check whether a matrix is a diagonal matrix or not. In linear algebra, a diagonal matrix is a matrix in which the entries outside the main diagonal are all zero (the diagonal from the upper left to the lower right). 
+// Example:
+// [1, 0, 0], [0, 2, 0], [0, 0, 3] ]) = true
+// [1, 0, 0], [0, 2, 3], [0, 0, 3] ]) = false
+
+function is_diagonal_matrix(user_matrix) {
+  for (var i = 0; i < user_matrix.length; i++) {
+      for (var j = 0; j < user_matrix.length; j++) {
+          if (i !== j && user_matrix[i][j] !== 0) 
+            return false;
+      }
+  }
+  return true;
+}
+
+console.log("Solution of #115");
+console.log(is_diagonal_matrix([[1, 0, 0], [0, 2, 0], [0, 0, 3] ]));
+console.log(is_diagonal_matrix([[1, 0, 0], [0, 2, 3], [0, 0, 3] ]));
+
+// problem 116. Write a JavaScript program to find all the possible options to replace the hash in a string (Consists of digits and one hash (#)) with a digit to produce an integer divisible by 3. 
+// For a string "2*0", the output should be : ["210", "240", "270"]
+
+function is_divisible_by3(mask_str) {
+
+  var digitSum = 0,
+    left = '0'.charCodeAt(), // 48
+    right = '9'.charCodeAt(), //57
+    result = [],
+    mask_data = mask_str.split(''), //["2", "#", "0"]           
+    hash_pos = -1;
+
+  for (var i = 0; i < mask_data.length; i++) {  
+    if (left <= mask_data[i].charCodeAt() && mask_data[i].charCodeAt() <= right) {    // 48 <= 50 && 50 <= 57, 48 <= 35 && 35 <= 57, 48 <= 48 && 48 <= 57,
+      digitSum += mask_data[i].charCodeAt() - left;
+    }
+    else {
+      hash_pos = i;
+    }
+  }
+
+  for (var i = 0; i < 10; i++) {
+   
+    if ((digitSum + i) % 3 === 0) {
+      mask_data[hash_pos] = String.fromCharCode(left + i); 
+      // console.log(String.fromCharCode(left + i));
+      result.push(mask_data.join(''));
+    }
+    console.log(i);
+  }
+
+  return result;
+}
+
+console.log("Solution of #116");
+console.log(is_divisible_by3("2#0"))
+// console.log(is_divisible_by3("4#2"))
+
+// problem 117. Write a JavaScript program to check whether a given matrix is an identity matrix. 
+// Note: In linear algebra, the identity matrix, or sometimes ambiguously called a unit matrix, of size n is the n ? n square matrix with ones on the main diagonal and zeros elsewhere.
+// [[1, 0, 0], [0, 1, 0], [0, 0, 1]] -> true
+// [[1, 0, 0], [0, 1, 0], [1, 0, 1]] -> false
+
+function is_identity_Matrix(matrix_data) {
+  //Checks whether given matrix is a square matrix or not
+  for (var i = 0; i < matrix_data.length; i++)
+    {
+      rows = matrix_data.length;
+  cols = matrix_data[i].length;
+  if(rows != cols)
+    {
+     console.log("Matrix should be a square matrix");
+     return false;
+    }
+    }
+    for (var i = 0; i < matrix_data.length; i++)
+     {
+      for (var j = 0; j < matrix_data.length; j++)
+       {
+        if (matrix_data[i][j] !== 1 && i === j || matrix_data[i][j] && i !== j)
+        {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  console.log("Solution of #117");
+  console.log(is_identity_Matrix([[1, 0, 0, 2], [0, 1, 0], [0, 0, 1]]))
+  console.log(is_identity_Matrix([[1, 0, 0],  [0, 1, 0],  [0, 0, 1]]))
+  console.log(is_identity_Matrix([[1, 0, 1],  [0, 1, 0],  [0, 0, 1]])) 
 
 // problem 118. Write a JavaScript program to check whether a given number is in a given range. 
 
-function is_inrange(x, y, z) 
-{
-    return y >= x && y <= z; 
+function is_inrange(x, y, z) {
+  return y >= x && y <= z;
 }
 
 console.log("Solution of #118");
-console.log(is_inrange(1,2,3));  // true
-console.log(is_inrange(1,2,-3)); // false
-console.log(is_inrange(1.1,1.2,1.3)); //true
+console.log(is_inrange(1, 2, 3));  // true
+console.log(is_inrange(1, 2, -3)); // false
+console.log(is_inrange(1.1, 1.2, 1.3)); //true
 
 // problem 119. Write a JavaScript program to check if a given integer has an increasing digit sequence. 
 
@@ -710,7 +802,7 @@ function is_increasing_digits_Sequence(num) {
   for (var i = 0; i < arr_num.length - 1; i++) {
     if (parseInt(arr_num[i]) >= parseInt(arr_num[i + 1]))
       return false;
-    }
+  }
   return true;
 }
 
@@ -733,7 +825,7 @@ function check_a_point(a, b, x, y, r) {
   // console.log(dist_points);
   r *= r;
   if (dist_points < r) {
-      return true;
+    return true;
   }
   return false;
 }
@@ -746,18 +838,33 @@ console.log(check_a_point(0, 0, 6, 8, 6)); //false
 
 function is_monotonous(num) {
   if (num.length === 1) {
-      return true;
+    return true;
   }
   var num_direction = num[1] - num[0];
   for (var i = 0; i < num.length - 1; i++) {
-      if (num_direction * (num[i + 1] - num[i]) <= 0) {
-          return false;
-      }
+    if (num_direction * (num[i + 1] - num[i]) <= 0) {
+      return false;
+    }
   }
   return true;
 }
 console.log(is_monotonous([1, 2, 3])); //true
 console.log(is_monotonous([1, 2, 2])) //false
-console.log(is_monotonous([-3, -2, -1])) //true
+console.log(is_monotonous([-3, -2, -1])) //true   
 
+
+//  problem 126. Write a JavaScript program to get the largest even number from an array of integers. 
+
+function max_even(arra) {
+
+  arra.sort((x, y) => y - x);
+
+  for (var i = 0; i < arra.length; i++) {
+    if (arra[i] % 2 == 0)
+      return arra[i];
+  }
+}
+
+console.log(max_even([20, 40, 200]));
+console.log(max_even([20, 40, 200, 301]));
 
