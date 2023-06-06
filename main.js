@@ -651,22 +651,49 @@ console.log(findTrailingZeroes(11)); // 2
 
 //  problem 113. Write a JavaScript program to calculate the sum of n + n/2 + n/4 + n/8 + .... where n is a positive integer and all divisions are integers.
 
+
+// A...
+
 function int_sum(num) {
-  var s_sum = 0;
-  while (num > 0) {
-    s_sum += num;
-    num = Math.floor(num / 2);
-    console.log(num);
+  var s_sum = 0,
+    divider = 1;
+  while (divider > 0) {
+    num = Math.floor(num / divider);
+    divider *= 2;
+    // console.log(num);
   }
   return s_sum;
 }
 
 //
-console.log("Solution of #113");
+console.log("Solution of #113A");
 console.log(int_sum(8))  //15
 console.log(int_sum(9))  //16
 console.log(int_sum(14)) //25 
 console.log(int_sum(26)) //49
+
+//////////////////////////////////////////////
+//////////////////////////
+////////////////////////////////
+
+// B...
+function int_sum2(num) {
+  var result = 0,
+    divider = 1;
+  while (divider <= num) {
+    result += Math.floor(num / divider);
+    divider *= 2;
+    // console.log(num);
+  }
+  return result;
+}
+
+//
+console.log("Solution of #113B");
+console.log(int_sum2(8))  //15
+console.log(int_sum2(9))  //16
+console.log(int_sum2(14)) //25 
+console.log(int_sum2(26)) //49
 
 //////////////////
 //////////////////////// 
@@ -697,17 +724,17 @@ console.log(is_correct_Sentence("My brother's name is Al-Mukit Apon")); // false
 
 function is_diagonal_matrix(user_matrix) {
   for (var i = 0; i < user_matrix.length; i++) {
-      for (var j = 0; j < user_matrix.length; j++) {
-          if (i !== j && user_matrix[i][j] !== 0) 
-            return false;
-      }
+    for (var j = 0; j < user_matrix.length; j++) {
+      if (i !== j && user_matrix[i][j] !== 0)
+        return false;
+    }
   }
   return true;
 }
 
 console.log("Solution of #115");
-console.log(is_diagonal_matrix([[1, 0, 0], [0, 2, 0], [0, 0, 3] ]));
-console.log(is_diagonal_matrix([[1, 0, 0], [0, 2, 3], [0, 0, 3] ]));
+console.log(is_diagonal_matrix([[1, 0, 0], [0, 2, 0], [0, 0, 3]]));
+console.log(is_diagonal_matrix([[1, 0, 0], [0, 2, 3], [0, 0, 3]]));
 
 // problem 116. Write a JavaScript program to find all the possible options to replace the hash in a string (Consists of digits and one hash (#)) with a digit to produce an integer divisible by 3. 
 // For a string "2*0", the output should be : ["210", "240", "270"]
@@ -721,7 +748,7 @@ function is_divisible_by3(mask_str) {
     mask_data = mask_str.split(''), //["2", "#", "0"]           
     hash_pos = -1;
 
-  for (var i = 0; i < mask_data.length; i++) {  
+  for (var i = 0; i < mask_data.length; i++) {
     if (left <= mask_data[i].charCodeAt() && mask_data[i].charCodeAt() <= right) {    // 48 <= 50 && 50 <= 57, 48 <= 35 && 35 <= 57, 48 <= 48 && 48 <= 57,
       digitSum += mask_data[i].charCodeAt() - left;
     }
@@ -731,13 +758,13 @@ function is_divisible_by3(mask_str) {
   }
 
   for (var i = 0; i < 10; i++) {
-   
+
     if ((digitSum + i) % 3 === 0) {
-      mask_data[hash_pos] = String.fromCharCode(left + i); 
+      mask_data[hash_pos] = String.fromCharCode(left + i);
       // console.log(String.fromCharCode(left + i));
-      result.push(mask_data.join(''));
+      result.push(mask_data.join('')); // [ 210, 240, 270 ]
     }
-    console.log(i);
+    // console.log(i);
   }
 
   return result;
@@ -747,40 +774,49 @@ console.log("Solution of #116");
 console.log(is_divisible_by3("2#0"))
 // console.log(is_divisible_by3("4#2"))
 
-// problem 117. Write a JavaScript program to check whether a given matrix is an identity matrix. 
+// problem 117. Write a JavaScript progr\am to check whether a given matrix is an identity matrix. 
 // Note: In linear algebra, the identity matrix, or sometimes ambiguously called a unit matrix, of size n is the n ? n square matrix with ones on the main diagonal and zeros elsewhere.
 // [[1, 0, 0], [0, 1, 0], [0, 0, 1]] -> true
 // [[1, 0, 0], [0, 1, 0], [1, 0, 1]] -> false
 
 function is_identity_Matrix(matrix_data) {
-  //Checks whether given matrix is a square matrix or not
-  for (var i = 0; i < matrix_data.length; i++)
-    {
-      rows = matrix_data.length;
-  cols = matrix_data[i].length;
-  if(rows != cols)
-    {
-     console.log("Matrix should be a square matrix");
-     return false;
-    }
-    }
-    for (var i = 0; i < matrix_data.length; i++)
+  for (let i = 0; i < matrix_data.length; i++) 
+   {
+    for (let j = 0; j < matrix_data.length; j++)
      {
-      for (var j = 0; j < matrix_data.length; j++)
-       {
-        if (matrix_data[i][j] !== 1 && i === j || matrix_data[i][j] && i !== j)
-        {
-          return false;
-        }
+      if (matrix_data[i][j] !== 1 && i === j || matrix_data[i][j] && i !== j)
+      {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+console.log(is_identity_Matrix([[1, 0, 0],  [0, 1, 0],  [0, 0, 1]]))
+console.log(is_identity_Matrix([[1, 0, 1],  [0, 1, 0],  [0, 0, 1]]))
+
+//////////////
+/////////////////////
+///////////////
+
+function identity_matrix(matrix){
+  for (let i = 0; i < matrix.length; i++){
+    for (let j = 0; j < matrix.length; j++){
+      // Checks the main diagonal elemets are 1
+      if (i == j && matrix[i][j] == 1){
+        return false;
+      }
+      // Checks the rest elements are 0
+      else if (i != j && matrix[i][j]){
+        return false;
       }
     }
     return true;
   }
-
-  console.log("Solution of #117");
-  console.log(is_identity_Matrix([[1, 0, 0, 2], [0, 1, 0], [0, 0, 1]]))
-  console.log(is_identity_Matrix([[1, 0, 0],  [0, 1, 0],  [0, 0, 1]]))
-  console.log(is_identity_Matrix([[1, 0, 1],  [0, 1, 0],  [0, 0, 1]])) 
+} 
+console.log(identity_matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]])); // true
+console.log(identity_matrix([[1, 0, 1], [0, 1, 0], [0, 0, 1]])); //false
 
 // problem 118. Write a JavaScript program to check whether a given number is in a given range. 
 
@@ -833,6 +869,23 @@ function check_a_point(a, b, x, y, r) {
 console.log(check_a_point(0, 0, 2, 4, 6)); //true
 console.log(check_a_point(0, 0, 6, 8, 6)); //false
 
+// problem 121. Write a JavaScript program to check whether a given matrix is lower triangular or not. 
+// Note: A square matrix is called lower triangular if all the entries above the main diagonal are zero.
+
+function lower_triangular_matrix(user_matrix) {
+  for (var i = 0; i < user_matrix.length; i++) 
+       {
+      for (var j = 0; j < user_matrix[0].length; j++) 
+          {
+          if (j > i && user_matrix[i][j] !== 0)
+            return false;
+      }
+  }
+  return true;
+}
+
+console.log(lower_triangular_matrix([[1, 0, 0],[2, 0, 0], [0, 3, 3]]));
+console.log(lower_triangular_matrix([[1, 0, 1],[2, 0, 0], [0, 3, 3]]));
 
 // problem 122. Write a JavaScript program to check whether a given array of integers represents a strictly increasing or decreasing sequence. 
 
@@ -852,6 +905,17 @@ console.log(is_monotonous([1, 2, 3])); //true
 console.log(is_monotonous([1, 2, 2])) //false
 console.log(is_monotonous([-3, -2, -1])) //true   
 
+// problem 123. Write a JavaScript program to find out if the members of a given array of integers are a permutation of numbers from 1 to a given integer.
+
+function is_permutation(input_arr, n) {
+  for (var i = 0; i < n; i++) {
+      if (input_arr.indexOf(i + 1) < 0) 
+        return false;
+  }
+  return true;
+}
+console.log(is_permutation([1, 2, 3, 4, 5], 5));
+console.log(is_permutation([1, 2, 3, 5], 5));
 
 //  problem 126. Write a JavaScript program to get the largest even number from an array of integers. 
 
