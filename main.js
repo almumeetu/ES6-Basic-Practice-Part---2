@@ -957,3 +957,22 @@ function nearest_round_number(num) {
 console.log(nearest_round_number(56));
 console.log(nearest_round_number(592));
 
+// problem 129. Write a JavaScript program to find the smallest prime number strictly greater than a given number. 
+
+function next_Prime_num(num) {
+  for (let i = num + 1;; i++) {
+      let isPrime = true;
+      for (let d = 2; d * d <= i; d++) {
+          if (i % d === 0) {
+              isPrime = false;
+              break;
+          }
+      }
+      if (isPrime) {
+          return i;
+      }
+  }
+}
+
+console.log(next_Prime_num(3));
+console.log(next_Prime_num(17));
