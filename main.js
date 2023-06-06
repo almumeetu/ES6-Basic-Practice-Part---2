@@ -917,6 +917,18 @@ function is_permutation(input_arr, n) {
 console.log(is_permutation([1, 2, 3, 4, 5], 5));
 console.log(is_permutation([1, 2, 3, 5], 5));
 
+// problem 124. Write a JavaScript program to create the NOR value of two given booleans. 
+// Note: In boolean logic, logical nor or joint denial is a truth-functional operator which produces a result that is the negation of logical or. That is, a sentence of the form (p NOR q) is true precisely when neither p nor q is true - i.e. when both of p and q are false
+// Sample Example:
+// For x = true and y = false, the output should be logical_Nor(x, y) = false; For x = false and y = false, the output should be logical_Nor(x, y) = true.
+
+function test_logical_Nor(a, b) {
+  return (!a && !b)
+}
+console.log(test_logical_Nor(true, false));
+console.log(test_logical_Nor(false, false));
+console.log(test_logical_Nor(true, true));\
+
 //  problem 126. Write a JavaScript program to get the largest even number from an array of integers. 
 
 function max_even(arra) {
@@ -931,4 +943,17 @@ function max_even(arra) {
 
 console.log(max_even([20, 40, 200]));
 console.log(max_even([20, 40, 200, 301]));
+
+// problem 128. Write a JavaScript program to find the smallest round number not less than a given value. 
+// Note: A round number is informally considered to be an integer that ends with one or more zeros.[3] So, 590 is rounder than 592, but 590 is less round than 600.
+
+function nearest_round_number(num) {
+  while (num % 10) {
+      num++;
+  }
+  return num;
+}
+
+console.log(nearest_round_number(56));
+console.log(nearest_round_number(592));
 
