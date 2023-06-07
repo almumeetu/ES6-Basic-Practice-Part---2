@@ -191,8 +191,7 @@ function findMostFrequentNumber(arr) {
 
 // Example usage
 const numbers = [1, 2, 3, 2, 5, 2, 2, 6, 2, 7, 2];
-const result = findMostFrequentNumber(numbers)
-  ;
+const result = findMostFrequentNumber(numbers);
 console.log(result); // Output: 2
 
 
@@ -335,47 +334,47 @@ console.log(check_common_element([1, 2, 3], [5, 6, 7]));
 
 // problem 101. Write a JavaScript program to check whether a given string contains only Latin letters and no two uppercase and no two lowercase letters are in adjacent positions. 
 
-function test_string(input_str) {
-  const is_lower_case = symbol => {
-    if ('a' <= symbol && symbol <= 'z') {
-      return true;
-    }
-    return false;
-  };
+// function test_string(input_str) {
+//   const is_lower_case = symbol => {
+//     if ('a' <= symbol && symbol <= 'z') {
+//       return true;
+//     }
+//     return false;
+//   };
 
-  const is_upper_case = symbol => {
-    if ('A' <= symbol && symbol <= 'Z') {
-      return true;
-    }
-    return false;
-  };
+//   const is_upper_case = symbol => {
+//     if ('A' <= symbol && symbol <= 'Z') {
+//       return true;
+//     }
+//     return false;
+//   };
 
-  const is_first_char_lower = is_lower_case(input_str[0]);
-  const is_first_char_upper = is_upper_case(input_str[0]);
+//   const is_first_char_lower = is_lower_case(input_str[0]);
+//   const is_first_char_upper = is_upper_case(input_str[0]);
 
-  // if (!(is_first_char_lower || is_first_char_upper)) {
-  //   return false;
-  // }
+//   // if (!(is_first_char_lower || is_first_char_upper)) {
+//   //   return false;
+//   // }
 
-  for (let i = 1; i < input_str.length; i++) {
-    if (i % 2) {
-      if (is_lower_case(input_str[i]) === is_first_char_lower ||
-        is_upper_case(input_str[i]) === is_first_char_upper) {
-        return false;
-      }
-    } else {
-      if (is_lower_case(input_str[i]) !== is_first_char_lower ||
-        is_upper_case(input_str[i]) !== is_first_char_upper) {
-        return false;
-      }
-    }
-  }
+//   for (let i = 1; i < input_str.length; i++) {
+//     if (i % 2) {
+//       if (is_lower_case(input_str[i]) === is_first_char_lower ||
+//         is_upper_case(input_str[i]) === is_first_char_upper) {
+//         return false;
+//       }
+//     } else {
+//       if (is_lower_case(input_str[i]) !== is_first_char_lower ||
+//         is_upper_case(input_str[i]) !== is_first_char_upper) {
+//         return false;
+//       }
+//     }
+//   }
 
-  return true;
-}
-console.log("Solution of #101 A");
-console.log(test_string('xYr'));
-console.log(test_string('XXyx'));
+//   return true;
+// }
+// console.log("Solution of #101 A");
+// console.log(test_string('xYr'));
+// console.log(test_string('XXyx'));
 
 // Solution of #101 B
 
@@ -654,23 +653,6 @@ console.log(findTrailingZeroes(11)); // 2
 
 // A...
 
-function int_sum(num) {
-  var s_sum = 0,
-    divider = 1;
-  while (divider > 0) {
-    num = Math.floor(num / divider);
-    divider *= 2;
-    // console.log(num);
-  }
-  return s_sum;
-}
-
-//
-console.log("Solution of #113A");
-console.log(int_sum(8))  //15
-console.log(int_sum(9))  //16
-console.log(int_sum(14)) //25 
-console.log(int_sum(26)) //49
 
 //////////////////////////////////////////////
 //////////////////////////
@@ -688,7 +670,6 @@ function int_sum2(num) {
   return result;
 }
 
-//
 console.log("Solution of #113B");
 console.log(int_sum2(8))  //15
 console.log(int_sum2(9))  //16
@@ -925,9 +906,9 @@ console.log(is_permutation([1, 2, 3, 5], 5));
 function test_logical_Nor(a, b) {
   return (!a && !b)
 }
-console.log(test_logical_Nor(true, false));
+console.log(test_logical_Nor(false, true));
 console.log(test_logical_Nor(false, false));
-console.log(test_logical_Nor(true, true));\
+console.log(test_logical_Nor(true, true));
 
 //  problem 126. Write a JavaScript program to get the largest even number from an array of integers. 
 
@@ -988,6 +969,41 @@ function even_digits(num) {
   return ctr;
 }
 
-console.log(even_digits(123));
-console.log(even_digits(1020));
-console.log(even_digits(102));
+console.log(even_digits(123)); // 1
+console.log(even_digits(1020)); // 3
+console.log(even_digits(102)); // 2
+
+// problem 131 Write a JavaScript program to create an array of prefix sums of the given array.
+
+// In computer science, the prefix sum, cumulative sum, inclusive scan, or simply scan of a sequence of numbers x0, x1, x2, ... is a second sequence of numbers y0, y1, y2, ..., the sums of prefixes of the input sequence:
+// y0 = x0
+// y1 = x0 + x1
+// y2 = x0 + x1+ x2
+
+function prefix_sums(arr) {
+  var new_arr = [];
+  for (var i = 0; i < arr.length; i++) {
+    new_arr[i] = 0;
+    for (var j = 0; j < i + 1; j++) {
+      new_arr[i] += arr[j];
+    }
+  }
+  return new_arr;
+}
+
+console.log(prefix_sums([1, 2, 3, 4, 5]));
+
+console.log(prefix_sums([1, 2, -3, 4, 5]));
+
+///////////////////////////
+
+// problem 131 B:
+
+function summs(arr){
+  let sum = 0;
+  for(let i = 0; i < arr.length; i++){
+    sum += arr[i];
+  }
+  return sum;
+}
+console.log(summs([1,2,3,4,5]));
