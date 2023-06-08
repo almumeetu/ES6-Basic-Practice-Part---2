@@ -761,12 +761,9 @@ console.log(is_divisible_by3("2#0"))
 // [[1, 0, 0], [0, 1, 0], [1, 0, 1]] -> false
 
 function is_identity_Matrix(matrix_data) {
-  for (let i = 0; i < matrix_data.length; i++) 
-   {
-    for (let j = 0; j < matrix_data.length; j++)
-     {
-      if (matrix_data[i][j] !== 1 && i === j || matrix_data[i][j] && i !== j)
-      {
+  for (let i = 0; i < matrix_data.length; i++) {
+    for (let j = 0; j < matrix_data.length; j++) {
+      if (matrix_data[i][j] !== 1 && i === j || matrix_data[i][j] && i !== j) {
         return false;
       }
     }
@@ -774,28 +771,28 @@ function is_identity_Matrix(matrix_data) {
   return true;
 }
 
-console.log(is_identity_Matrix([[1, 0, 0],  [0, 1, 0],  [0, 0, 1]]))
-console.log(is_identity_Matrix([[1, 0, 1],  [0, 1, 0],  [0, 0, 1]]))
+console.log(is_identity_Matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]]))
+console.log(is_identity_Matrix([[1, 0, 1], [0, 1, 0], [0, 0, 1]]))
 
 //////////////
 /////////////////////
 ///////////////
 
-function identity_matrix(matrix){
-  for (let i = 0; i < matrix.length; i++){
-    for (let j = 0; j < matrix.length; j++){
+function identity_matrix(matrix) {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix.length; j++) {
       // Checks the main diagonal elemets are 1
-      if (i == j && matrix[i][j] == 1){
+      if (i == j && matrix[i][j] == 1) {
         return false;
       }
       // Checks the rest elements are 0
-      else if (i != j && matrix[i][j]){
+      else if (i != j && matrix[i][j]) {
         return false;
       }
     }
     return true;
   }
-} 
+}
 console.log(identity_matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]])); // true
 console.log(identity_matrix([[1, 0, 1], [0, 1, 0], [0, 0, 1]])); //false
 
@@ -854,19 +851,17 @@ console.log(check_a_point(0, 0, 6, 8, 6)); //false
 // Note: A square matrix is called lower triangular if all the entries above the main diagonal are zero.
 
 function lower_triangular_matrix(user_matrix) {
-  for (var i = 0; i < user_matrix.length; i++) 
-       {
-      for (var j = 0; j < user_matrix[0].length; j++) 
-          {
-          if (j > i && user_matrix[i][j] !== 0)
-            return false;
-      }
+  for (var i = 0; i < user_matrix.length; i++) {
+    for (var j = 0; j < user_matrix[0].length; j++) {
+      if (j > i && user_matrix[i][j] !== 0)
+        return false;
+    }
   }
   return true;
 }
 
-console.log(lower_triangular_matrix([[1, 0, 0],[2, 0, 0], [0, 3, 3]]));
-console.log(lower_triangular_matrix([[1, 0, 1],[2, 0, 0], [0, 3, 3]]));
+console.log(lower_triangular_matrix([[1, 0, 0], [2, 0, 0], [0, 3, 3]]));
+console.log(lower_triangular_matrix([[1, 0, 1], [2, 0, 0], [0, 3, 3]]));
 
 // problem 122. Write a JavaScript program to check whether a given array of integers represents a strictly increasing or decreasing sequence. 
 
@@ -890,8 +885,8 @@ console.log(is_monotonous([-3, -2, -1])) //true
 
 function is_permutation(input_arr, n) {
   for (var i = 0; i < n; i++) {
-      if (input_arr.indexOf(i + 1) < 0) 
-        return false;
+    if (input_arr.indexOf(i + 1) < 0)
+      return false;
   }
   return true;
 }
@@ -914,7 +909,7 @@ console.log(test_logical_Nor(true, true));
 
 function max_even(arra) {
 
-  arra.sort((x, y) => y - x);
+  arra.sort((x, y) => y - x); // [200, 40, 20]   [301, 200, 40, 20]
 
   for (var i = 0; i < arra.length; i++) {
     if (arra[i] % 2 == 0)
@@ -922,56 +917,146 @@ function max_even(arra) {
   }
 }
 
-console.log(max_even([20, 40, 200]));
-console.log(max_even([20, 40, 200, 301]));
+console.log(max_even([20, 40, 200])); //200
+console.log(max_even([20, 40, 200, 301])); //200
 
 // problem 128. Write a JavaScript program to find the smallest round number not less than a given value. 
 // Note: A round number is informally considered to be an integer that ends with one or more zeros.[3] So, 590 is rounder than 592, but 590 is less round than 600.
 
 function nearest_round_number(num) {
   while (num % 10) {
-      num++;
+    num++;
   }
   return num;
 }
 
-console.log(nearest_round_number(56));
-console.log(nearest_round_number(592));
+console.log(nearest_round_number(56)); //60
+console.log(nearest_round_number(592)); // 600
 
 // problem 129. Write a JavaScript program to find the smallest prime number strictly greater than a given number. 
 
-function next_Prime_num(num) {
-  for (let i = num + 1;; i++) {
-      let isPrime = true;
-      for (let d = 2; d * d <= i; d++) {
-          if (i % d === 0) {
-              isPrime = false;
-              break;
-          }
-      }
-      if (isPrime) {
-          return i;
+// function next_Prime_num(num) {
+
+//   let newNum = num + 1;
+
+//   while (!isPrime(newNum)) {
+//     newNum++;
+//   }
+//   return newNum;
+// }
+// function isPrime(newNum) {
+//   for (let i = 2; i <= newNum; i++) {
+//     if (num % i == 0) {
+//       return false;
+//     }
+//     return true;
+//   }
+  // for (let i = num + 1;; i++) {
+  //     let isPrime = true;
+  //     for (let j = 2; j * j <= i; j++) {
+  //         if (i % j === 0) {
+  //             isPrime = false;
+  //             break;
+  //         }
+  //     }
+  //     if (isPrime) {
+  //         return i;
+  //     }
+  // }
+// }
+
+// console.log(next_Prime_num(3));
+// console.log(next_Prime_num(17));
+
+////////////////////////
+///////////////////////////////
+//////////////////
+// function isPrime(newNum) {
+//   for (let i = 2; i < newNum; i++) {
+//     if (num % i == 0) {
+//       return false;
+//     }
+//     return true;
+//   }
+// }
+// function next_Prime_num(num) {
+
+//   let newNum = num + 1;
+
+//   while (!isPrime(newNum)) {
+//     newNum++;
+//   }
+//   return newNum;
+// }
+
+
+// console.log(next_Prime_num(3));
+// console.log(next_Prime_num(17));
+
+
+function isPrime(num){
+  if (num < 2) {
+      return false;
+  }
+
+  for (let i = 2; i <= Math.sqrt(num); i++){
+      if (num % i === 0) {
+          return false;
       }
   }
+  return true;
 }
+function findSmallestPrime (num) {
+  let currentNum = num + 1;
 
-console.log(next_Prime_num(3));
-console.log(next_Prime_num(17));
+  while(!isPrime(currentNum)){
+      currentNum ++;
+  }
+  return currentNum;
+}
+console.log(findSmallestPrime (3)); // 5
+console.log(findSmallestPrime (23)); // 29
+console.log(findSmallestPrime (73)); // 79
+console.log(findSmallestPrime (17)); // 19
+console.log(findSmallestPrime (31)); //37
+
 
 // problem 130. Write a JavaScript program to find the number of even digits in a given integer. 
 
 function even_digits(num) {
-  var ctr = 0;
+  var count = 0;
   while (num) {
-    ctr += num % 2 === 0;
+    count += num % 2 === 0;
     num = Math.floor(num / 10);
   }
-  return ctr;
+  return count;
 }
 
 console.log(even_digits(123)); // 1
 console.log(even_digits(1020)); // 3
 console.log(even_digits(102)); // 2
+
+//////////////
+
+// 130 B.
+
+function countEvenDigits (num) {
+  let count = 0;
+  const numStr = Math.abs(num).toString(); // Convert the absolute value of num to a string.
+
+  for (let i = 0; i < numStr.length; i++) {
+      const digit = parseInt(numStr[i]);
+
+          if (digit % 2 === 0){
+              count++;
+          }
+  }
+  return count;
+}
+
+console.log(countEvenDigits (123)); // 1
+console.log(countEvenDigits (1020)); // 3
+console.log(countEvenDigits (3045)); // 2
 
 // problem 131 Write a JavaScript program to create an array of prefix sums of the given array.
 
@@ -991,19 +1076,24 @@ function prefix_sums(arr) {
   return new_arr;
 }
 
-console.log(prefix_sums([1, 2, 3, 4, 5]));
+console.log(prefix_sums([1, 2, 3, 4, 5])); // 15
 
 console.log(prefix_sums([1, 2, -3, 4, 5]));
 
 ///////////////////////////
 
-// problem 131 B:
-
-function summs(arr){
+// 131 b:
+function creatPrefixSumsArray (arr) {
+  const prefixSums = [];
   let sum = 0;
+
   for(let i = 0; i < arr.length; i++){
-    sum += arr[i];
+      sum += arr[i];
+      prefixSums.push(sum);
   }
-  return sum;
+  return prefixSums;
 }
-console.log(summs([1,2,3,4,5]));
+
+console.log(creatPrefixSumsArray ([1,2,3,4,5]));
+console.log(creatPrefixSumsArray ([4,2,6,4,9]));
+console.log(creatPrefixSumsArray ([2,1,3,5,4]));
