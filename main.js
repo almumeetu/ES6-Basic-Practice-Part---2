@@ -971,27 +971,31 @@ console.log(nearest_round_number(592)); // 600
 ////////////////////////
 ///////////////////////////////
 //////////////////
-// function isPrime(newNum) {
-//   for (let i = 2; i < newNum; i++) {
-//     if (num % i == 0) {
-//       return false;
-//     }
-//     return true;
-//   }
-// }
-// function next_Prime_num(num) {
+function isPrime(newNum) {
+  for (let i = 2; i < newNum; i++) {
+    if (newNum % i == 0) {
+      return false;
+    }
+    return true;
+  }
+}
+function next_Prime_num(num) {
 
-//   let newNum = num + 1;
+  let newNum = num + 1;
 
-//   while (!isPrime(newNum)) {
-//     newNum++;
-//   }
-//   return newNum;
-// }
+  while (!isPrime(newNum)) {
+    newNum++;
+  }
+  return newNum;
+}
 
 
-// console.log(next_Prime_num(3));
-// console.log(next_Prime_num(17));
+console.log(next_Prime_num(3));
+console.log(next_Prime_num(17));
+
+/////////////////////////////////////
+///////////////////////
+/////////////
 
 
 function isPrime(num) {
@@ -1110,4 +1114,31 @@ function change_char(str1) {
   return result.join("");
 }
 console.log(change_char("abcxyz"));
-console.log(change_char("python")); 
+console.log(change_char("python"));
+
+// problem 135: Write a JavaScript program to remove all characters from a given string that appear more than once.
+
+function remove_duplicate_cchars(str) {
+  const arr_char = str.split("");
+  const result_arr = [];
+
+  for (let i = 0; i < arr_char.length; i++) {
+    if (str.indexOf(arr_char[i]) === str.lastIndexOf(arr_char[i]))
+      result_arr.push(arr_char[i]);
+  }
+
+  return result_arr.join("");
+}
+console.log(remove_duplicate_cchars("abcdabc")); // d
+console.log(remove_duplicate_cchars("python")); // python
+console.log(remove_duplicate_cchars("abcabc")); // 
+
+// problem 136. Write a JavaScript program to replace the first digit in a string (should have at least one digit) with the $ character. 
+
+function replaceFirstDigit(input_str) {
+
+  return input_str.replace(/[0-9]/, '$');
+}
+console.log(replaceFirstDigit("abc1dabc")); // abc$dabc
+console.log(replaceFirstDigit("p3ython")); // p$ython
+console.log(replaceFirstDigit("ab1cabc")); // ab$cabc
