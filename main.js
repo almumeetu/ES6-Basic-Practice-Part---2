@@ -951,18 +951,18 @@ console.log(nearest_round_number(592)); // 600
 //     }
 //     return true;
 //   }
-  // for (let i = num + 1;; i++) {
-  //     let isPrime = true;
-  //     for (let j = 2; j * j <= i; j++) {
-  //         if (i % j === 0) {
-  //             isPrime = false;
-  //             break;
-  //         }
-  //     }
-  //     if (isPrime) {
-  //         return i;
-  //     }
-  // }
+// for (let i = num + 1;; i++) {
+//     let isPrime = true;
+//     for (let j = 2; j * j <= i; j++) {
+//         if (i % j === 0) {
+//             isPrime = false;
+//             break;
+//         }
+//     }
+//     if (isPrime) {
+//         return i;
+//     }
+// }
 // }
 
 // console.log(next_Prime_num(3));
@@ -994,31 +994,31 @@ console.log(nearest_round_number(592)); // 600
 // console.log(next_Prime_num(17));
 
 
-function isPrime(num){
+function isPrime(num) {
   if (num < 2) {
-      return false;
+    return false;
   }
 
-  for (let i = 2; i <= Math.sqrt(num); i++){
-      if (num % i === 0) {
-          return false;
-      }
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
   }
   return true;
 }
-function findSmallestPrime (num) {
+function findSmallestPrime(num) {
   let currentNum = num + 1;
 
-  while(!isPrime(currentNum)){
-      currentNum ++;
+  while (!isPrime(currentNum)) {
+    currentNum++;
   }
   return currentNum;
 }
-console.log(findSmallestPrime (3)); // 5
-console.log(findSmallestPrime (23)); // 29
-console.log(findSmallestPrime (73)); // 79
-console.log(findSmallestPrime (17)); // 19
-console.log(findSmallestPrime (31)); //37
+console.log(findSmallestPrime(3)); // 5
+console.log(findSmallestPrime(23)); // 29
+console.log(findSmallestPrime(73)); // 79
+console.log(findSmallestPrime(17)); // 19
+console.log(findSmallestPrime(31)); //37
 
 
 // problem 130. Write a JavaScript program to find the number of even digits in a given integer. 
@@ -1040,23 +1040,23 @@ console.log(even_digits(102)); // 2
 
 // 130 B.
 
-function countEvenDigits (num) {
+function countEvenDigits(num) {
   let count = 0;
   const numStr = Math.abs(num).toString(); // Convert the absolute value of num to a string.
 
   for (let i = 0; i < numStr.length; i++) {
-      const digit = parseInt(numStr[i]);
+    const digit = parseInt(numStr[i]);
 
-          if (digit % 2 === 0){
-              count++;
-          }
+    if (digit % 2 === 0) {
+      count++;
+    }
   }
   return count;
 }
 
-console.log(countEvenDigits (123)); // 1
-console.log(countEvenDigits (1020)); // 3
-console.log(countEvenDigits (3045)); // 2
+console.log(countEvenDigits(123)); // 1
+console.log(countEvenDigits(1020)); // 3
+console.log(countEvenDigits(3045)); // 2
 
 // problem 131 Write a JavaScript program to create an array of prefix sums of the given array.
 
@@ -1083,17 +1083,31 @@ console.log(prefix_sums([1, 2, -3, 4, 5]));
 ///////////////////////////
 
 // 131 b:
-function creatPrefixSumsArray (arr) {
+function creatPrefixSumsArray(arr) {
   const prefixSums = [];
   let sum = 0;
 
-  for(let i = 0; i < arr.length; i++){
-      sum += arr[i];
-      prefixSums.push(sum);
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+    prefixSums.push(sum);
   }
   return prefixSums;
 }
 
-console.log(creatPrefixSumsArray ([1,2,3,4,5]));
-console.log(creatPrefixSumsArray ([4,2,6,4,9]));
-console.log(creatPrefixSumsArray ([2,1,3,5,4]));
+console.log(creatPrefixSumsArray([1, 2, 3, 4, 5]));
+console.log(creatPrefixSumsArray([4, 2, 6, 4, 9]));
+console.log(creatPrefixSumsArray([2, 1, 3, 5, 4]));
+
+// problem 134: Write a JavaScript program to change the characters (lower case) in a string where a turns into z, b turns into y, c turns into x, ..., n turns into m, m turns into n, ..., z turns into a.
+
+function change_char(str1) {
+  var result = [];
+  for (var i = 0; i < str1.length; i++) {
+    var char_order = str1.charCodeAt(i) - 'a'.charCodeAt(0),
+      change_char = 25 - char_order + 'a'.charCodeAt(0);
+    result.push(String.fromCharCode(change_char));
+  }
+  return result.join("");
+}
+console.log(change_char("abcxyz"));
+console.log(change_char("python")); 
