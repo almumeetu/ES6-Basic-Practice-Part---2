@@ -1190,3 +1190,21 @@ num = Math.floor(num / 10);
 console.log(testSameDigit(1234)); // false
 console.log(testSameDigit(1111)); //true
 console.log(testSameDigit(22222222)); //true
+
+// problem 141. Write a JavaScript program to find the number of elements in both arrays.  
+
+function testSameElementsBothArrays(arra1, arra2) {
+  var result = 0;
+  for(var i = 0; i < arra1.length; i++) {
+    for(var j = 0; j < arra2.length; j++){
+      if(arra1[i] === arra2[j])
+      {
+        result++;
+      }
+    }
+  }
+  return result;
+}
+console.log(testSameElementsBothArrays([1,2,3,4], [1,2,3,4])); // 4
+console.log(testSameElementsBothArrays([1,2,3,4], [1,2,3,5])); // 3
+console.log(testSameElementsBothArrays([1,2,3,4], [11,22,33,44])); // 0
