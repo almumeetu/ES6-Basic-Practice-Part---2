@@ -1142,3 +1142,36 @@ function replaceFirstDigit(input_str) {
 console.log(replaceFirstDigit("abc1dabc")); // abc$dabc
 console.log(replaceFirstDigit("p3ython")); // p$ython
 console.log(replaceFirstDigit("ab1cabc")); // ab$cabc
+
+
+// problem 137. Write a JavaScript program to test whether a given integer is greater than 15 and return the given number, otherwise return 15. 
+
+function testFifteen(num) {
+  while (num < 15) {
+    num++;
+  }
+  return num;
+}
+console.log(testFifteen("123")); // 123
+console.log(testFifteen("10")); // 15
+console.log(testFifteen("5")); // 15
+
+// problem 139. Write a JavaScript program to find the position of the rightmost round number in an array of integers. If there are no round numbers, the function returns 0.  
+// Note: A round number is informally considered to be an integer that ends with one or more zeros.
+
+function findRightmostRoundNumber(input_arr) {
+
+  var result = 0;
+  for (var i = 0; i < input_arr.length; i++)
+  {
+    if (input_arr[i] % 10 === 0) {
+      result = i;
+    }
+  }
+
+  return result;
+}
+
+console.log(findRightmostRoundNumber([1, 22, 30, 54, 56])); // 30
+console.log(findRightmostRoundNumber([1, 22, 32, 54, 56])); // 0
+console.log(findRightmostRoundNumber([1, 22, 32, 54, 50])); // 50
