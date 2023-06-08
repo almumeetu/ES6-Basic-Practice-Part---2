@@ -1175,3 +1175,18 @@ function findRightmostRoundNumber(input_arr) {
 console.log(findRightmostRoundNumber([1, 22, 30, 54, 56])); // 30
 console.log(findRightmostRoundNumber([1, 22, 32, 54, 56])); // 0
 console.log(findRightmostRoundNumber([1, 22, 32, 54, 50])); // 50
+
+// problem 140. Write a JavaScript program to check whether all the digits in a given number are the same or not.  
+
+function testSameDigit(num) {
+  var first = num % 10;
+  while (num) {
+    if (num % 10 !== first) return false;
+num = Math.floor(num / 10);
+  }
+  return true
+}
+
+console.log(testSameDigit(1234)); // false
+console.log(testSameDigit(1111)); //true
+console.log(testSameDigit(22222222)); //true
