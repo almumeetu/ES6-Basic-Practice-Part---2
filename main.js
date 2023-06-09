@@ -1373,3 +1373,22 @@ function changeLetterCapitalization(string) {
 console.log(changeLetterCapitalization("w3resource"));
 console.log(changeLetterCapitalization("Germany"));
 
+
+// problem 150. Write a JavaScript program to swap pairs of adjacent digits of a given integer of even length.  
+
+function swapAdjacentDigits(num) {
+  const numStr = String(num);
+  let result = "";
+
+  for (let i = 0; i < numStr.length; i += 2) {
+    result += numStr[i + 1] + numStr[i];
+  }
+
+  return Number(result);
+}
+console.log(swapAdjacentDigits(15));
+console.log(swapAdjacentDigits(1234));
+console.log(swapAdjacentDigits(123456));
+console.log(swapAdjacentDigits(12345));
+
+
