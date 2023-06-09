@@ -1143,6 +1143,21 @@ console.log(replaceFirstDigit("abc1dabc")); // abc$dabc
 console.log(replaceFirstDigit("p3ython")); // p$ython
 console.log(replaceFirstDigit("ab1cabc")); // ab$cabc
 
+///////////////////////////
+//////////////////////////////
+/////////////////////
+
+function replaceLastDigit1(string) {
+  for (let i = string.length - 1; i >= 0; i--) {
+    if (!isNaN(string[i])) {
+      string = string.substring(0, i) + '$' + string.substring(i + 1);
+      break;
+    }
+  }
+  
+  return string;
+}
+console.log(replaceLastDigit1("ab1c3ab5c"));
 
 // problem 137. Write a JavaScript program to test whether a given integer is greater than 15 and return the given number, otherwise return 15. 
 
@@ -1156,7 +1171,8 @@ console.log(testFifteen("123")); // 123
 console.log(testFifteen("10")); // 15
 console.log(testFifteen("5")); // 15
 
-// problem 139. Write a JavaScript program to find the position of the rightmost round number in an array of integers. If there are no round numbers, the function returns 0.  
+// problem 139. Write a JavaScript program to find the position of the rightmost round number in an array of integers.
+//  If there are no round numbers, the function returns 0.  
 // Note: A round number is informally considered to be an integer that ends with one or more zeros.
 
 function findRightmostRoundNumber(input_arr) {
@@ -1165,7 +1181,7 @@ function findRightmostRoundNumber(input_arr) {
   for (var i = 0; i < input_arr.length; i++)
   {
     if (input_arr[i] % 10 === 0) {
-      result = i;
+      result = input_arr[i];
     }
   }
 
@@ -1184,12 +1200,31 @@ function testSameDigit(num) {
     if (num % 10 !== first) return false;
 num = Math.floor(num / 10);
   }
-  return true
+  return true;
 }
 
 console.log(testSameDigit(1234)); // false
 console.log(testSameDigit(1111)); //true
 console.log(testSameDigit(22222222)); //true
+
+////////////
+/////////////////////////
+///////////////////////////////////
+
+function digitsSame(number) {
+  const digits = String(number).split('');
+  const firstDigit = digits[0];
+
+  for (let i = 1; i < digits.length; i++) {
+    if (digits[i] !== firstDigit) {
+      return false;
+    }
+  }
+  
+  return true;
+}
+console.log(digitsSame(1234));
+console.log(digitsSame(333333));
 
 // problem 141. Write a JavaScript program to find the number of elements in both arrays.  
 
@@ -1208,3 +1243,20 @@ function testSameElementsBothArrays(arra1, arra2) {
 console.log(testSameElementsBothArrays([1,2,3,4], [1,2,3,4])); // 4
 console.log(testSameElementsBothArrays([1,2,3,4], [1,2,3,5])); // 3
 console.log(testSameElementsBothArrays([1,2,3,4], [11,22,33,44])); // 0
+/////////////////////////////
+/////////////////////////////////
+////////////////////
+
+function findCommonElements(arr1, arr2) {
+  let count = 0;
+    for (let i = 0; i < arr1.length; i++) {
+    const currentElement = arr1[i];
+    
+    if (arr2.includes(currentElement)) {
+      count++;
+    }
+  }
+  
+  return count;
+}
+console.log(findCommonElements([1,2,3,4], [1,2,3,5]));
