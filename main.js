@@ -1315,4 +1315,61 @@ console.log(sumOfDigitsInString("abcd12efg9")); // 12
 console.log(sumOfDigitsInString("w3resource")); // 12
 
 
-pr
+// problem 148. Write a JavaScript program to swap two halves of a given array of integers of even length.  
+
+function swapArrayHalves(array) {
+  const middleIndex = Math.floor(array.length / 2);
+
+  const firstHalf = array.slice(0, middleIndex);
+
+  const secondHalf = array.slice(middleIndex);
+
+  return secondHalf.concat(firstHalf);
+
+}
+
+console.log(swapArrayHalves([1,2,3,4,5,6])) // [4,5,6,1,2,3]
+
+console.log(swapArrayHalves([1,2,3,4,5,6,7])) // [4,5,6,7,1,2,3]
+
+
+// problem 149. Write a JavaScript program to change the capitalization of all letters in a given string.  
+
+function change_case(txt) {
+  var str1 = "";
+  for (var i = 0; i < txt.length; i++) {
+      if (/[A-Z]/.test(txt[i])){
+        str1 += txt[i].toLowerCase();
+      }  else {
+        str1 += txt[i].toUpperCase();
+      } 
+     
+  }
+  return str1;
+}
+
+console.log(change_case("w3resource"));
+console.log(change_case("Germany"));
+
+///////////////////////////////////////////////
+////////////////////////
+
+function changeLetterCapitalization(string) {
+  let result = "";
+  
+  for (let i = 0; i < string.length; i++) {
+    const char = string.charAt(i);
+    
+    if (char === char.toUpperCase()) {
+      result += char.toLowerCase();
+    } else {
+      result += char.toUpperCase();
+    }
+  }
+  
+  return result;
+}
+
+console.log(changeLetterCapitalization("w3resource"));
+console.log(changeLetterCapitalization("Germany"));
+
