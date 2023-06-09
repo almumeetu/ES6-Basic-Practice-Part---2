@@ -1260,3 +1260,59 @@ function findCommonElements(arr1, arr2) {
   return count;
 }
 console.log(findCommonElements([1,2,3,4], [1,2,3,5]));
+
+
+
+// problem 146. Write a JavaScript program to compute the sum of cubes of all integers from 1 to a given integer.  
+
+function sumOfCubes(n) {
+  let sum = 0;
+  
+  for (let i = 1; i <= n; i++) {
+    sum += Math.pow(i, 3);
+  }
+  
+  return sum;
+}
+console.log(sumOfCubes(3)); // 36
+console.log(sumOfCubes(4)); // 100
+console.log(sumOfCubes(5)); // 225
+
+// problem 147. Write a JavaScript program to compute the sum of all the digits that occur in a given string.
+
+function sum_digits_from_string(dstr) {
+  var dsum = 0;
+
+  for (var i = 0; i < dstr.length; i++)
+  {
+
+    if (/[0-9]/.test(dstr[i])) dsum += parseInt(dstr[i])
+  }
+  return dsum;
+}
+
+console.log(sum_digits_from_string("abcd12efg9")); // 12
+console.log(sum_digits_from_string("w3resource")) // 3
+
+///////////////////////////
+/////////////////////////
+////////////////////////////////
+
+function sumOfDigitsInString(string) {
+  let sum = 0;
+  
+  for (let i = 0; i < string.length; i++) {
+    const char = string[i];
+    
+    if (!isNaN(parseInt(char))) {
+      sum += parseInt(char);
+    }
+  }
+  
+  return sum;
+}
+console.log(sumOfDigitsInString("abcd12efg9")); // 12
+console.log(sumOfDigitsInString("w3resource")); // 12
+
+
+pr
